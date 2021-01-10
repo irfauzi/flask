@@ -1,0 +1,99 @@
+{%extends 'base.html'%}
+
+
+{%block konten%}
+
+<h1>Daftar Akun</h1><br>
+
+<form method="POST">
+    {{form.hidden_tag()}}
+
+    <div class="form-group">
+        {{form.nama.label(class='form-control-label')}}
+        {%if form.nama.errors%}
+        {{form.nama(class='form-control is-invalid')}}
+
+            <div class="invalid-feedback">
+               {%for error in form.nama.errors%}
+               <span> {{error}} </span>
+              {%endfor%}
+            </div>
+
+        {%else%}
+            {{form.nama(class='form-control')}}
+          {%endif%}
+    </div>
+
+    <div class="form-group">
+        {{form.kota.label(class='form-control-label')}}
+        {%if form.kota.errors%}
+        {{form.kota(class='form-control is-invalid')}}
+        
+        <div class="invalid-feedback">
+            {%for error in form.kota.errors%}
+            <span>{{error}}</span>
+            {%endfor%}
+        </div>
+        {%else%}
+        {{form.kota(class='form-control')}}
+        {%endif%}
+    </div>
+
+    
+
+    <div class="form-group">
+        {{form.email.label(class='form-control-label')}}
+        {%if form.email.errors%}
+        {{form.email(class='form-control is-invalid')}}
+        
+        <div class="invalid-feedback">
+            {%for error in form.email.errors%}
+            <span>{{error}}</span>
+            {%endfor%}
+        </div>
+        {%else%}
+        {{form.email(class='form-control')}}
+        {%endif%}
+    </div>
+
+    <div class="form-group">
+        {{form.pw.label(class='form-control-label')}}
+        {%if form.pw.errors%}
+        {{form.pw(class='form-control is-invalid')}}
+        
+        <div class="invalid-feedback">
+            {%for error in form.pw.errors%}
+            <span>{{error}}</span>
+            {%endfor%}
+        </div>
+        {%else%}
+        {{form.pw(class='form-control')}}
+        {%endif%}
+    </div>
+
+    <div class="form-group">
+        {{form.cpw.label(class='form-control-label')}}
+        {%if form.cpw.errors%}
+        {{form.cpw(class='form-control is-invalid')}}
+        
+        <div class="invalid-feedback">
+            {%for error in form.cpw.errors%}
+            <span>{{error}}</span>
+            {%endfor%}
+        </div>
+        {%else%}
+        {{form.cpw(class='form-control')}}
+        {%endif%}
+    </div>
+
+     <p><span>sudah punya akun? <a href="{{url_for('rregister.loginP')}}">masuk disini cuy</a></span></p><br>
+
+    <div class="form-group">
+        {{form.submit(class='btn btn-primary')}}
+    </div>
+
+    
+
+</form>
+
+{%endblock%}

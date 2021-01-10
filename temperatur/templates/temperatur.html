@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{%block konten%}
+
+<div class="jumbotron">
+    <h3 class="display-4">Beritahu Kami!</h3> 
+        <h2> Temperatur Udara Di Lokasimu</h2>
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+</div>
+
+
+<form method="POST">
+    {{form.hidden_tag()}}
+
+    <div class="form-group">
+        {{form.temper.label(class='form-control-label')}}
+        {%if form.temper.errors%}
+        {{form.temper(class='form-control is-invalid')}}
+
+            <div class="invalid-feedback">
+               {%for error in form.temper.errors%}
+               <span> {{error}} </span>
+              {%endfor%}
+            </div>
+
+        {%else%}
+            {{form.temper(class='form-control')}}
+          {%endif%}
+    </div>
+
+    <div class="form-group">
+        {{form.kota.label(class='form-control-label')}}
+        {%if form.kota.errors%}
+        {{form.kota(class='form-control is-invalid')}}
+        
+        <div class="invalid-feedback">
+            {%for error in form.kota.errors%}
+            <span>{{error}}</span>
+            {%endfor%}
+        </div>
+        {%else%}
+        {{form.kota(class='form-control')}}
+        {%endif%}
+    </div>
+
+
+
+    <div class="form-group">
+        {{form.submit(class='btn btn-primary')}}
+    </div>
+
+    
+
+</form>
+
+
+{%endblock%}
